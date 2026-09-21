@@ -1,0 +1,190 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Thème : sombre (défaut) ─── */
+:root {
+  color-scheme: dark;
+  --ink-950: 5 10 8;
+  --ink-900: 8 15 12;
+  --ink-800: 12 23 18;
+  --ink-700: 19 33 27;
+  --ink-600: 27 45 36;
+  --venom: 46 222 120;
+  --venom-soft: 110 255 172;
+  --slate-300: 203 213 225;
+  --slate-400: 148 163 184;
+  --slate-500: 100 116 139;
+  --slate-600: 71 85 105;
+  --white: 244 248 246;
+  --cyan-300: 103 232 249;
+  --cyan-400: 34 211 238;
+  --violet-300: 196 181 253;
+  --violet-500: 139 92 246;
+  --amber-300: 252 211 77;
+  --amber-400: 251 191 36;
+}
+
+/* ─── Thème : clair ─── */
+html.light {
+  color-scheme: light;
+  --ink-950: 246 249 247;
+  --ink-900: 240 244 241;
+  --ink-800: 233 239 235;
+  --ink-700: 224 231 226;
+  --ink-600: 205 214 208;
+  --venom: 6 143 84;
+  --venom-soft: 4 120 71;
+  --slate-300: 63 71 80;
+  --slate-400: 82 92 102;
+  --slate-500: 104 112 122;
+  --slate-600: 118 126 136;
+  --white: 15 23 42;
+  --cyan-300: 6 148 162;
+  --cyan-400: 8 145 178;
+  --violet-300: 109 40 217;
+  --violet-500: 124 58 237;
+  --amber-300: 202 138 4;
+  --amber-400: 180 83 9;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-ink-950 text-slate-300 font-sans antialiased;
+  background-image:
+    linear-gradient(rgb(var(--venom) / 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(var(--venom) / 0.05) 1px, transparent 1px),
+    radial-gradient(60rem 40rem at 10% -10%, rgb(var(--venom) / 0.09), transparent 60%),
+    radial-gradient(50rem 36rem at 100% 0%, rgb(var(--cyan-400) / 0.07), transparent 55%),
+    radial-gradient(40rem 30rem at 50% 120%, rgb(var(--venom) / 0.05), transparent 60%);
+  background-size:
+    42px 42px,
+    42px 42px,
+    auto,
+    auto,
+    auto;
+  background-attachment: fixed;
+}
+
+::selection {
+  background: rgb(var(--venom) / 0.35);
+  color: #f8fafc;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: rgb(var(--ink-950));
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--ink-700));
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--ink-600));
+}
+
+@layer components {
+  .text-gradient {
+    @apply bg-gradient-to-r from-venom via-emerald-400 to-cyan-400 bg-clip-text text-transparent;
+  }
+  html.light .text-gradient {
+    @apply from-venom via-emerald-600 to-cyan-600;
+  }
+  .card-surface {
+    @apply rounded-2xl border border-white/10 bg-ink-800/60 backdrop-blur;
+  }
+}
+
+/* ─── Terminal de jeu (toujours sombre, comme un vrai shell) ─── */
+.tterm {
+  background: #040a08;
+  color: #9ef0c0;
+}
+.tterm .prompt {
+  color: #43e97b;
+  font-weight: 700;
+}
+.tterm .dim {
+  color: #4d7a66;
+}
+.tterm .ok {
+  color: #7dffa9;
+}
+.tterm .cyan {
+  color: #7de8ff;
+}
+.tterm .err {
+  color: #ff6b6b;
+}
+.tterm .gold {
+  color: #ffd76e;
+}
+.tterm input {
+  caret-color: #7dffa9;
+}
+.tterm ::-webkit-scrollbar-track {
+  background: #040a08;
+}
+.tterm ::-webkit-scrollbar-thumb {
+  background: #12382b;
+}
+.tterm ::selection {
+  background: rgba(46, 222, 120, 0.4);
+  color: #eafff2;
+}
+html.light .matrix-canvas {
+  opacity: 0.14;
+}
+@media (prefers-reduced-motion: reduce) {
+  .matrix-canvas {
+    display: none;
+  }
+}
+
+.md-body {
+  @apply text-slate-300 leading-relaxed;
+}
+.md-body h1 {
+  @apply text-3xl font-bold text-white mt-8 mb-4;
+}
+.md-body h2 {
+  @apply text-2xl font-bold text-white mt-10 mb-4;
+}
+.md-body h3 {
+  @apply text-xl font-semibold text-white mt-8 mb-3;
+}
+.md-body p {
+  @apply mb-5;
+}
+.md-body ul {
+  @apply list-disc pl-6 mb-5 space-y-2;
+}
+.md-body ol {
+  @apply list-decimal pl-6 mb-5 space-y-2;
+}
+.md-body a {
+  @apply text-cyan-400 underline underline-offset-4 decoration-cyan-400/40 hover:text-cyan-300;
+}
+.md-body strong {
+  @apply text-white font-semibold;
+}
+.md-body code {
+  @apply font-mono text-[0.9em] px-1.5 py-0.5 rounded bg-ink-700 text-venom-soft;
+}
+.md-body pre {
+  @apply bg-ink-900 border border-white/10 rounded-xl p-4 overflow-x-auto mb-5;
+}
+.md-body pre code {
+  @apply bg-transparent p-0 text-slate-200;
+}
+.md-body blockquote {
+  @apply border-l-4 border-venom pl-4 text-slate-400 italic my-5;
+}
+.md-body hr {
+  @apply border-white/10 my-8;
+}

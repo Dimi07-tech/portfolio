@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>CV — BABALOLA Dimitri Oluyomi</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Segoe UI", Calibri, Arial, sans-serif;
+    color: #2b2f36; background: #fff;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .page { width: 210mm; height: 297mm; display: flex; overflow: hidden; }
+
+  /* ===== SIDEBAR GAUCHE ===== */
+  aside {
+    width: 70mm; background: #e7edf3; padding: 10mm 7mm;
+    border-right: 0.8mm solid #1f4e79; overflow: hidden; min-height: 0;
+  }
+  .photo {
+    width: 40mm; height: 40mm; border-radius: 50%;
+    margin: 0 auto 7mm; border: 0.6mm dashed #9db3c8;
+    display: block; object-fit: cover; object-position: center top;
+    font-size: 7pt; letter-spacing: 2px; color: #8fa3b8; background: #f3f7fa;
+  }
+  img.photo { border: none; object-fit: cover; }
+
+  aside h2 {
+    font-size: 11.5pt; color: #1f4e79; letter-spacing: 1.5px;
+    border-bottom: 0.5mm solid #1f4e79; padding-bottom: 1.2mm;
+    margin: 6mm 0 3mm;
+  }
+  aside h2:first-of-type { margin-top: 0; }
+
+  .contact-item { display: flex; gap: 2mm; margin-bottom: 3.2mm; font-size: 10.2pt; line-height: 1.45; overflow-wrap: anywhere; }
+  .contact-item .ic { color: #1f4e79; }
+
+  .grp { font-weight: 700; color: #1f4e79; font-size: 10.2pt; margin-top: 4mm; }
+  .grp:first-of-type { margin-top: 0; }
+  .grp-items { font-size: 10.2pt; color: #3a4450; line-height: 1.62; overflow-wrap: anywhere; }
+
+  .cert li, .lang li {
+    list-style: none; font-size: 10.2pt; line-height: 1.6;
+    padding-left: 3.5mm; position: relative; margin-bottom: 2.8mm; color: #3a4450;
+  }
+  .cert li::before, .lang li::before {
+    content: "●"; position: absolute; left: 0; top: 0;
+    color: #1f4e79; font-size: 5pt;
+  }
+
+  /* ===== COLONNE PRINCIPALE ===== */
+  main { flex: 1; min-width: 0; min-height: 0; overflow: hidden; padding: 10mm 8mm; }
+
+  h1 { font-size: 21pt; color: #1f4e79; letter-spacing: .5px; }
+  .job { font-size: 13pt; color: #3a4450; margin-top: 1.5mm; font-weight: 600; }
+  .handle { font-size: 10pt; color: #7a8694; margin-top: 1.2mm; letter-spacing: .5px; }
+
+  main h2 {
+    font-size: 13pt; color: #1f4e79; letter-spacing: 1.5px;
+    border-bottom: 0.5mm solid #1f4e79; padding-bottom: 1.2mm;
+    margin: 5.5mm 0 3mm;
+  }
+
+  .entry { position: relative; padding-left: 5mm; margin-bottom: 4.4mm; }
+  .entry::before {
+    content: ""; position: absolute; left: 0; top: 1.8mm;
+    width: 2.4mm; height: 2.4mm; border-radius: 50%; background: #1f4e79;
+  }
+  .entry { border-left: 0.3mm solid #c3d0dd; margin-left: 1.2mm; padding-left: 5mm; }
+  .entry::before { left: -1.95mm; }
+
+  .row { display: flex; justify-content: space-between; align-items: baseline; gap: 3mm; }
+  .name { font-weight: 700; font-size: 11pt; color: #1f2937; }
+  .date { font-size: 9.5pt; color: #7a8694; white-space: nowrap; }
+  .sub { font-size: 9.8pt; color: #5a6472; font-style: italic; margin-top: .4mm; }
+  .desc { font-size: 10.4pt; color: #3a4450; line-height: 1.45; margin-top: 1mm; text-align: justify; overflow-wrap: anywhere; }
+
+  .profil { font-size: 10.8pt; line-height: 1.55; text-align: justify; color: #3a4450; }
+
+  .interets { font-size: 10.8pt; color: #3a4450; line-height: 1.5; }
+  .interets b { color: #1f4e79; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside>
+    <img class="photo" src="photo_cv_professionnelle.webp" alt="Portrait professionnel de Dimitri Babalola">
+
+    <h2>CONTACT</h2>
+    <div class="contact-item"><span class="ic">📞</span><span>+229 01 42 13 10 09</span></div>
+    <div class="contact-item"><span class="ic">✉️</span><span>dimitribabalola@gmail.com</span></div>
+    <div class="contact-item"><span class="ic">📍</span><span>Cotonou, Bénin</span></div>
+    <div class="contact-item"><span class="ic">💻</span><span>github.com/Dimi07-tech</span></div>
+    <div class="contact-item"><span class="ic">🔗</span><span>linkedin.com/in/dimitri-babalola-64ab04414</span></div>
+
+    <h2>COMPÉTENCES</h2>
+    <div class="grp">Réseaux (CCNA)</div>
+    <div class="grp-items">Routage &amp; switching · OSPF (DR/BDR) · VLAN &amp; trunking · ACL · NAT/PAT · Packet Tracer · Wireshark</div>
+    <div class="grp">Développement</div>
+    <div class="grp-items">JavaScript · Node.js · HTML/CSS · Python · Git / GitHub · Docker</div>
+    <div class="grp">Sécurité &amp; Outils</div>
+    <div class="grp-items">Énumération (Nmap) · Analyse de trafic · Burp Suite · SQLMap · OSINT · Linux / Bash</div>
+
+    <h2>LANGUES</h2>
+    <ul class="lang">
+      <li><b>Français</b> — Langue maternelle</li>
+      <li><b>Anglais</b> — Technique (TOEIC en préparation)</li>
+    </ul>
+
+    <h2>CERTIFICATIONS</h2>
+    <ul class="cert">
+      <li>CyberCup Indian Ocean — OCOI · 2026 <b>(Obtenu)</b></li>
+      <li>CCNA — Routing &amp; Switching Essentials · NetAcad <b>(En cursus)</b></li>
+      <li>En préparation : OSCP · eJPT · CompTIA Security+</li>
+    </ul>
+  </aside>
+
+  <!-- ===== COLONNE PRINCIPALE ===== -->
+  <main>
+    <h1>BABALOLA Dimitri Oluyomi</h1>
+    <div class="job">Étudiant en Réseau Informatique, Mobilité &amp; Sécurité</div>
+    <div class="handle">K0BR4 · réseau · sécurité · stratégie</div>
+
+    <h2>PROFIL</h2>
+    <p class="profil">Étudiant en Réseau Informatique, Mobilité et Sécurité à Pigier Bénin (Calavi). Passionné de CTF, de développement web et de réseaux Cisco (CCNA). Méthodique, rigoureux et orienté résultats, je vise les métiers de la cybersécurité offensive et de l'administration réseau.</p>
+
+    <h2>EXPÉRIENCES &amp; PROJETS</h2>
+
+    <div class="entry">
+      <div class="row"><span class="name">SkyBook</span><span class="date">2026</span></div>
+      <div class="desc">Plateforme de recherche et réservation de vols (parcours invité) : tarifs Basic/Flex, choix des sièges et options, hold de 15 minutes sans paiement avec référence unique SKY-XXXXXX. Expiration côté serveur et compte à rebours temps réel via WebSocket, dashboard analytique et back-office Odoo 18. React 19 · TypeScript · Fastify · PostgreSQL · Docker.</div>
+    </div>
+
+    <div class="entry">
+      <div class="row"><span class="name">OVL-MD-V2</span><span class="date">2026</span></div>
+      <div class="desc">Bot WhatsApp multi-device en JavaScript / Node.js : automatisation de messages, commandes personnalisées, gestion d'événements. Conteneurisé avec Docker.</div>
+    </div>
+
+    <div class="entry">
+      <div class="row"><span class="name">Urban_Taste</span><span class="date">2026</span></div>
+      <div class="desc">Application web de découverte culinaire : vitrine de menus, interactions et interface responsive.</div>
+    </div>
+
+    <div class="entry">
+      <div class="row"><span class="name">Labs réseau — Cisco IOS</span><span class="date">2025 →</span></div>
+      <div class="desc">Topologies OSPF (comparatif broadcast vs point-to-point, élection DR/BDR) et mise en œuvre d'ACL standards &amp; étendues sur Packet Tracer.</div>
+    </div>
+
+    <div class="entry">
+      <div class="row"><span class="name">CyberCup Indian Ocean — Team Edition</span><span class="date">2026</span></div>
+      <div class="sub">OCOI · Équipe Hope229</div>
+      <div class="desc">Compétition internationale de cybersécurité (1ère étape). Certificat de participation obtenu ; épreuves de web, énumération et analyse de fichiers.</div>
+    </div>
+
+    <h2>ÉDUCATION</h2>
+
+    <div class="entry">
+      <div class="row"><span class="name">Pigier Bénin — Site de Calavi</span><span class="date">2025 → Aujourd'hui</span></div>
+      <div class="desc">Formation en Réseau Informatique, Mobilité &amp; Sécurité.</div>
+    </div>
+
+    <div class="entry">
+      <div class="row"><span class="name">Cisco Networking Academy</span><span class="date">2025 — 2026</span></div>
+      <div class="desc">CCNA : Routing &amp; Switching Essentials (adressage, routage dynamique, VLAN, ACL, sécurité réseau).</div>
+    </div>
+
+    <h2>CENTRES D'INTÉRÊT</h2>
+    <p class="interets"><b>CTF &amp; cybersécurité</b> · <b>Nouvelles technologies</b> · <b>Administration Linux</b> · <b>Football &amp; sport</b></p>
+
+  </main>
+</div>
+</body>
+</html>
