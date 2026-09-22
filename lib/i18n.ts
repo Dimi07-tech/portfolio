@@ -93,7 +93,6 @@ export interface Dict {
   footer: {
     tagline: string;
     rights: string;
-    builtWith: string;
   };
 }
 
@@ -195,7 +194,6 @@ const fr: Dict = {
   footer: {
     tagline: "Réseau · Sécurité · Stratégie. Construit avec méthode.",
     rights: "Tous droits réservés.",
-    builtWith: "Construit avec Next.js & Tailwind",
   },
 };
 
@@ -297,7 +295,6 @@ const en: Dict = {
   footer: {
     tagline: "Networking · Security · Strategy. Built with method.",
     rights: "All rights reserved.",
-    builtWith: "Built with Next.js & Tailwind",
   },
 };
 

@@ -38,7 +38,6 @@ export function Footer() {
         <p>
           © {new Date().getFullYear()} K0BR4 — {t.footer.rights}
         </p>
-        <p className="font-mono">{t.footer.builtWith}</p>
       </div>
     </footer>
   );
