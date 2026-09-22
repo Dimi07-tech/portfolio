@@ -47,9 +47,9 @@ export function Hero() {
         ))}
       </div>
 
-      <div className="mx-auto grid w-full max-w-6xl items-center gap-14 px-6 lg:grid-cols-[0.95fr_1.05fr]">
+      <div className="mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-14 px-6 lg:grid-cols-[0.95fr_1.05fr]">
         {/* left */}
-        <div className="animate-fade-up">
+        <div className="min-w-0 animate-fade-up">
           <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-venom/40 bg-venom/10 px-4 py-1.5 font-mono text-xs tracking-widest text-venom">
             <span className="inline-block h-1.5 w-1.5 animate-pulse-glow rounded-full bg-venom" />
             {t.hero.badge}
@@ -74,7 +74,7 @@ export function Hero() {
               {t.hero.ctaProjects} →
             </a>
             <a
-              href="/cv/K0BR4-CV-fr.pdf"
+              href={lang === "en" ? "/cv/K0BR4-CV-en.pdf" : "/cv/K0BR4-CV-fr.pdf"}
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-full border border-white/15 bg-white/5 px-7 py-3 text-sm font-semibold text-white transition-colors hover:border-venom/60 hover:text-venom"
@@ -101,7 +101,7 @@ export function Hero() {
         </div>
 
         {/* right : terminal de jeu */}
-        <div className="relative animate-fade-up [animation-delay:150ms]">
+        <div className="relative min-w-0 animate-fade-up [animation-delay:150ms]">
           {/* halo derrière le terminal */}
           <div className="pointer-events-none absolute -inset-8 -z-10 rounded-[2rem] bg-venom/10 blur-3xl" />
           <Terminal key={lang} />

@@ -9,7 +9,7 @@ export function Ctf() {
 
   return (
     <Section id="ctf" kicker={t.ctf.kicker} title={t.ctf.title} lead={t.ctf.lead}>
-      <div className="grid gap-5 lg:grid-cols-2">
+      <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
         <div className="card-surface overflow-hidden">
           {/* bannière "achievement" — pas de photo d'attestation */}
           <div className="border-b border-white/5 bg-gradient-to-r from-venom/20 via-cyan-400/10 to-transparent px-6 py-8 font-mono">

@@ -51,7 +51,7 @@ export function Contact() {
 
   return (
     <Section id="contact" kicker={t.contact.kicker} title={t.contact.title} lead={t.contact.lead}>
-      <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+      <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1.1fr_0.9fr]">
         {/* form */}
         <form onSubmit={onSubmit} className="card-surface space-y-5 p-6 md:p-8">
           <div className="grid gap-5 md:grid-cols-2">

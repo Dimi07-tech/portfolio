@@ -7,11 +7,16 @@ export function About() {
   const { t } = useLang();
 
   return (
-    <Section id="about" kicker={t.about.kicker} title={t.about.title}>
-      <div className="grid items-center gap-14 lg:grid-cols-[0.9fr_1.1fr]">
+    <Section
+      id="about"
+      kicker={t.about.kicker}
+      title={t.about.title}
+      className="overflow-hidden"
+    >
+      <div className="grid grid-cols-1 items-center gap-14 lg:grid-cols-[0.9fr_1.1fr]">
         {/* photo de profil */}
         <div className="relative mx-auto w-full max-w-xs lg:max-w-sm">
-          <div className="absolute -inset-8 -z-10 rounded-[2.5rem] bg-venom/10 blur-3xl" />
+          <div className="absolute -inset-4 -z-10 rounded-[2.5rem] bg-venom/10 blur-3xl sm:-inset-8" />
 
           <div className="animate-drift rounded-3xl bg-gradient-to-tr from-venom via-cyan-400/40 to-transparent p-[2px]">
             <div className="relative overflow-hidden rounded-3xl bg-ink-900">

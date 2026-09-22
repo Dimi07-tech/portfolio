@@ -50,6 +50,7 @@ html.light {
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
 }
 
 body {
@@ -137,11 +138,11 @@ body {
   background: rgba(46, 222, 120, 0.4);
   color: #eafff2;
 }
-html.light .matrix-canvas {
+html.light .matrix-rain {
   opacity: 0.14;
 }
 @media (prefers-reduced-motion: reduce) {
-  .matrix-canvas {
+  .matrix-rain {
     display: none;
   }
 }

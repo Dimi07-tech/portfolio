@@ -16,10 +16,10 @@ export function Navbar() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-white/5 bg-ink-950/70 backdrop-blur-md">
-      <nav className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-6">
+      <nav className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-4 sm:px-6">
         <a href="#home" className="flex items-center gap-3 text-white">
           <Logo size={30} idSuffix="nav" />
-          <span className="font-display text-sm font-bold tracking-[0.3em] text-white">
+          <span className="hidden min-[400px]:inline font-display text-sm font-bold tracking-[0.3em] text-white">
             K0BR4<span className="text-venom">.</span>
           </span>
         </a>
@@ -82,10 +82,10 @@ export function Navbar() {
             </button>
 
             <a
-              href="/cv/K0BR4-CV-fr.pdf"
+              href={lang === "en" ? "/cv/K0BR4-CV-en.pdf" : "/cv/K0BR4-CV-fr.pdf"}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex rounded-full border border-venom/50 bg-venom/10 px-4 py-2 text-sm font-semibold text-venom transition-all hover:bg-venom hover:text-ink-950"
+              className="hidden sm:inline-flex rounded-full border border-venom/50 bg-venom/10 px-4 py-2 text-sm font-semibold text-venom transition-all hover:bg-venom hover:text-ink-950"
             >
               {t.nav.cv} ↓
             </a>
@@ -108,7 +108,7 @@ export function Navbar() {
 
       {open && (
         <div className="border-t border-white/5 bg-ink-900/95 backdrop-blur lg:hidden">
-          <div className="mx-auto flex max-w-6xl flex-col gap-1 px-6 py-4">
+          <div className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-4 sm:px-6">
             {sectionIds.map((id) => (
               <a
                 key={id}
@@ -127,7 +127,7 @@ export function Navbar() {
               {t.nav.blog}
             </Link>
             <a
-              href="/cv/K0BR4-CV-fr.pdf"
+              href={lang === "en" ? "/cv/K0BR4-CV-en.pdf" : "/cv/K0BR4-CV-fr.pdf"}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-2 rounded-lg border border-venom/50 bg-venom/10 px-3 py-2 text-sm font-semibold text-venom"
