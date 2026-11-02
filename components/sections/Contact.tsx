@@ -1,135 +1,113 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { Section } from "@/components/Section";
-import { Icon } from "@/components/Icon";
+import { Icon, type IconName } from "@/components/Icon";
 import { useLang } from "@/components/LangProvider";
 import { profile } from "@/lib/data";
 
 export function Contact() {
-  const { lang, t } = useLang();
+  const { t } = useLang();
   const [sent, setSent] = useState(false);
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const data = new FormData(e.currentTarget);
-    const name = String(data.get("name") || "");
-    const email = String(data.get("email") || "");
-    const message = String(data.get("message") || "");
-    const subject = lang === "fr" ? `Contact portfolio — ${name}` : `Portfolio contact — ${name}`;
-    const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
-    window.location.href = `mailto:${profile.email}?subject=${encodeURIComponent(
-      subject
-    )}&body=${body}`;
+    const d = new FormData(e.currentTarget);
+    const name = String(d.get("name") || "");
+    const email = String(d.get("email") || "");
+    const subject = String(d.get("subject") || "") || `Portfolio — ${name}`;
+    const body = `${String(d.get("message") || "")}\n\n— ${name} (${email})`;
+    window.location.href = `mailto:${profile.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     setSent(true);
   };
 
-  const contacts = [
-    { icon: "mail" as const, label: t.contact.emailLabel, value: profile.email, href: `mailto:${profile.email}` },
-    {
-      icon: "whatsapp" as const,
-      label: t.contact.whatsappLabel,
-      value: profile.phone,
-      href: profile.whatsapp,
-      external: true,
-    },
-    {
-      icon: "linkedin" as const,
-      label: t.contact.linkedinLabel,
-      value: "in/dimitri-babalola",
-      href: profile.linkedin,
-      external: true,
-    },
-    {
-      icon: "github" as const,
-      label: t.contact.githubLabel,
-      value: "Dimi07-tech",
-      href: profile.github,
-      external: true,
-    },
+  const channels: { icon: IconName; label: string; value: string; href: string; external?: boolean }[] = [
+    { icon: "mail", label: "Email", value: profile.email, href: `mailto:${profile.email}` },
+    { icon: "whatsapp", label: "WhatsApp", value: profile.phone, href: profile.whatsapp, external: true },
+    { icon: "linkedin", label: "LinkedIn", value: "in/dimitri-babalola", href: profile.linkedin, external: true },
+    { icon: "github", label: "GitHub", value: "Dimi07-tech", href: profile.github, external: true },
   ];
 
   return (
-    <Section id="contact" kicker={t.contact.kicker} title={t.contact.title} lead={t.contact.lead}>
-      <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1.1fr_0.9fr]">
-        {/* form */}
-        <form onSubmit={onSubmit} className="card-surface space-y-5 p-6 md:p-8">
-          <div className="grid gap-5 md:grid-cols-2">
-            <label className="block">
-              <span className="mb-2 block text-sm font-medium text-slate-300">{t.contact.formName}</span>
-              <input
-                name="name"
-                required
-                placeholder="K0BR4"
-                className="w-full rounded-xl border border-white/10 bg-ink-900 px-4 py-3 text-white placeholder:text-slate-600 outline-none transition-colors focus:border-cyan-400/60"
-              />
-            </label>
-            <label className="block">
-              <span className="mb-2 block text-sm font-medium text-slate-300">{t.contact.formEmail}</span>
-              <input
-                name="email"
-                type="email"
-                required
-                placeholder="vous@exemple.com"
-                className="w-full rounded-xl border border-white/10 bg-ink-900 px-4 py-3 text-white placeholder:text-slate-600 outline-none transition-colors focus:border-cyan-400/60"
-              />
-            </label>
-          </div>
-          <label className="block">
-            <span className="mb-2 block text-sm font-medium text-slate-300">{t.contact.formMessage}</span>
-            <textarea
-              name="message"
-              required
-              rows={5}
-              placeholder={t.contact.formPlaceholder}
-              className="w-full resize-none rounded-xl border border-white/10 bg-ink-900 px-4 py-3 text-white placeholder:text-slate-600 outline-none transition-colors focus:border-cyan-400/60"
-            />
-          </label>
-          <button
-            type="submit"
-            className="rounded-full bg-gradient-to-r from-venom to-cyan-400 px-7 py-3 text-sm font-semibold text-ink-950 shadow-lg shadow-venom/20 transition-transform hover:scale-[1.03]"
-          >
-            {t.contact.formSend} →
-          </button>
-          {sent && <p className="text-sm text-venom">{t.contact.success}</p>}
-        </form>
+    <section id="contact" className="scroll-mt-20 py-20 md:py-28">
+      <div className="shell">
+        <div className="relative overflow-hidden rounded-[28px] border hairline bg-surface p-6 sm:p-10 lg:p-14">
+          <div aria-hidden className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-accent/15 blur-[100px]" />
 
-        {/* direct */}
-        <div>
-          <h3 className="mb-4 font-mono text-sm uppercase tracking-[0.25em] text-slate-400">
-            {t.contact.directLabel}
-          </h3>
-          <div className="space-y-3">
-            {contacts.map((c) => (
-              <a
-                key={c.label}
-                href={c.href}
-                target={c.external ? "_blank" : undefined}
-                rel={c.external ? "noopener noreferrer" : undefined}
-                className="card-surface flex items-center gap-4 p-4 transition-colors hover:border-venom/50"
-              >
-                <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-ink-900 text-cyan-300">
-                  <Icon name={c.icon} size={18} />
-                </span>
-                <div className="min-w-0">
-                  <p className="text-xs text-slate-500">{c.label}</p>
-                  <p className="truncate text-sm font-medium text-white">{c.value}</p>
-                </div>
-              </a>
-            ))}
-          </div>
+          <div className="relative grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+            <div>
+              <p className="eyebrow mb-4">
+                <span className="text-faint">06</span>
+                <span className="h-px w-6 bg-accent/50" />
+                {t.contact.kicker}
+              </p>
+              <h2 className="font-display text-4xl font-semibold tracking-tight text-fg md:text-5xl">{t.contact.title}</h2>
+              <p className="mt-4 text-lg leading-relaxed">{t.contact.lead}</p>
 
-          <a
-            href={profile.whatsapp}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-6 flex items-center justify-center gap-2 rounded-full border border-venom/50 bg-venom/10 px-6 py-3 text-sm font-semibold text-venom transition-all hover:bg-venom hover:text-ink-950"
-          >
-            <Icon name="whatsapp" size={18} />
-            {t.contact.whatsappCta}
-          </a>
+              <ul className="mt-10 space-y-2">
+                {channels.map((c) => (
+                  <li key={c.label}>
+                    <a
+                      href={c.href}
+                      target={c.external ? "_blank" : undefined}
+                      rel={c.external ? "noopener noreferrer" : undefined}
+                      className="group flex items-center gap-4 rounded-xl p-2 -mx-2 transition-colors hover:bg-surface-2"
+                    >
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border hairline bg-bg text-fg">
+                        <Icon name={c.icon} size={17} />
+                      </span>
+                      <span className="min-w-0 flex-1">
+                        <span className="block text-xs text-faint">{c.label}</span>
+                        <span className="block truncate text-sm font-medium text-fg">{c.value}</span>
+                      </span>
+                      <Icon name="arrow-up-right" size={16} className="text-faint transition-colors group-hover:text-accent" />
+                    </a>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-8 flex flex-wrap gap-2">
+                <a href="/cv/K0BR4-CV-fr.pdf" target="_blank" rel="noopener noreferrer" className="btn-ghost !py-2.5">
+                  <Icon name="download" size={16} /> {t.contact.cvFr}
+                </a>
+                <a href="/cv/K0BR4-CV-en.pdf" target="_blank" rel="noopener noreferrer" className="btn-ghost !py-2.5">
+                  <Icon name="download" size={16} /> {t.contact.cvEn}
+                </a>
+              </div>
+            </div>
+
+            <form onSubmit={onSubmit} className="rounded-2xl border hairline bg-bg/60 p-5 sm:p-7">
+              <div className="grid gap-4 sm:grid-cols-2">
+                <label className="block">
+                  <span className="mb-1.5 block text-sm font-medium text-fg">{t.contact.name}</span>
+                  <input name="name" required autoComplete="name" className="field" />
+                </label>
+                <label className="block">
+                  <span className="mb-1.5 block text-sm font-medium text-fg">{t.contact.email}</span>
+                  <input name="email" type="email" required autoComplete="email" className="field" />
+                </label>
+              </div>
+              <label className="mt-4 block">
+                <span className="mb-1.5 block text-sm font-medium text-fg">{t.contact.subject}</span>
+                <input name="subject" className="field" />
+              </label>
+              <label className="mt-4 block">
+                <span className="mb-1.5 block text-sm font-medium text-fg">{t.contact.message}</span>
+                <textarea name="message" required rows={6} placeholder={t.contact.placeholder} className="field resize-none" />
+              </label>
+              <button type="submit" className="btn-primary mt-6 w-full sm:w-auto">
+                {t.contact.send}
+                <Icon name="arrow-right" size={16} />
+              </button>
+              {sent && (
+                <p className="mt-4 text-sm text-ok" role="status">
+                  {t.contact.success}
+                </p>
+              )}
+              <p className="mt-5 text-xs text-faint">{t.contact.privacy}</p>
+            </form>
+          </div>
         </div>
       </div>
-    </Section>
+    </section>
   );
 }

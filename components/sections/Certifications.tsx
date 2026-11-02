@@ -1,9 +1,19 @@
 "use client";
 
 import { Section } from "@/components/Section";
+import { Icon } from "@/components/Icon";
 import { useLang } from "@/components/LangProvider";
 import { pick } from "@/lib/i18n";
 import { certifications } from "@/lib/data";
+import { cn } from "@/lib/cn";
+import type { IconName } from "@/components/Icon";
+
+function iconFor(title: string, earned: boolean): IconName {
+  if (title.startsWith("CCNA")) return "network";
+  if (title.startsWith("Ethical")) return "shield";
+  if (title.startsWith("CyberOps")) return "lock";
+  return earned ? "award" : "network";
+}
 
 export function Certifications() {
   const { lang, t } = useLang();
@@ -11,57 +21,56 @@ export function Certifications() {
   return (
     <Section
       id="certifications"
+      index="04"
       kicker={t.certifications.kicker}
       title={t.certifications.title}
       lead={t.certifications.lead}
+      className="bg-surface/50"
     >
-      <div className="grid gap-5 md:grid-cols-2">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {certifications.map((c) => {
-          const status = pick(lang, c.status);
-          const obtained = status === pick(lang, { fr: "Obtenu", en: "Earned" });
+          const earned = c.status.en === "Earned";
           return (
-            <div key={c.title} className="card-surface flex items-start gap-4 p-6">
-              <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-white/10 bg-ink-900 text-2xl">
-                {c.icon}
-              </span>
-              <div className="flex-1">
-                <h3 className="font-semibold text-white">{c.title}</h3>
-                <p className="mt-1 text-sm text-slate-400">{c.org}</p>
-                <div className="mt-3 flex items-center gap-3">
-                  <span
-                    className={
-                      obtained
-                        ? "rounded-full border border-venom/50 bg-venom/10 px-3 py-1 font-mono text-xs text-venom"
-                        : "rounded-full border border-amber-400/50 bg-amber-400/10 px-3 py-1 font-mono text-xs text-amber-300"
-                    }
-                  >
-                    {status}
-                  </span>
-                  <span className="font-mono text-xs text-slate-500">{c.date}</span>
-                </div>
+            <article key={c.title} className="card card-hover flex flex-col p-6">
+              <div className="flex items-start justify-between gap-3">
+                <span
+                  className={cn(
+                    "flex h-12 w-12 items-center justify-center rounded-xl",
+                    c.title.startsWith("CyberCup") ? "bg-cyber/10 text-cyber" : "bg-accent/10 text-accent"
+                  )}
+                >
+                  <Icon name={iconFor(c.title, earned)} size={22} />
+                </span>
+                <span
+                  className={cn(
+                    "inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 font-mono text-[0.6875rem]",
+                    earned ? "bg-ok/10 text-ok" : "bg-accent/10 text-accent"
+                  )}
+                >
+                  <span className={cn("h-1.5 w-1.5 rounded-full", earned ? "bg-ok" : "animate-pulse bg-accent")} />
+                  {pick(lang, c.status)}
+                </span>
               </div>
-            </div>
+              <h3 className="mt-6 font-display text-lg font-semibold leading-snug text-fg">{c.title}</h3>
+              <p className="mt-1 flex-1 text-sm">{c.org}</p>
+              <p className="mt-5 font-mono text-xs text-faint">{c.date}</p>
+            </article>
           );
         })}
 
-        <div className="card-surface flex items-start gap-4 border-dashed p-6">
-          <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-white/10 bg-ink-900 text-2xl">
-            🎯
+        <article className="flex flex-col rounded-2xl border border-dashed hairline p-6">
+          <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-surface-2 text-muted">
+            <Icon name="shield" size={22} />
           </span>
-          <div>
-            <h3 className="font-semibold text-white">{t.certifications.preparingTitle}</h3>
-            <div className="mt-3 flex flex-wrap gap-2">
-              {t.certifications.preparing.map((c) => (
-                <span
-                  key={c}
-                  className="rounded-full border border-white/10 bg-ink-900 px-3 py-1 font-mono text-xs text-slate-300"
-                >
-                  {c}
-                </span>
-              ))}
-            </div>
+          <h3 className="mt-6 font-display text-lg font-semibold text-fg">{t.certifications.preparingTitle}</h3>
+          <div className="mt-4 flex flex-wrap gap-1.5">
+            {["eJPT", "CompTIA Security+", "OSCP"].map((c) => (
+              <span key={c} className="chip">
+                {c}
+              </span>
+            ))}
           </div>
-        </div>
+        </article>
       </div>
     </Section>
   );

@@ -14,12 +14,7 @@ export default function BlogPage() {
   return (
     <LangProvider>
       <Navbar />
-      <main className="mx-auto w-full max-w-5xl px-6 pb-24 pt-32">
-        <p className="mb-3 flex items-center gap-3 font-mono text-xs font-semibold uppercase tracking-[0.3em] text-venom">
-          <span className="h-px w-8 bg-venom/60" />
-          Blog
-        </p>
-        <h1 className="text-4xl font-bold tracking-tight text-white md:text-5xl">Articles & Writeups</h1>
+      <main id="main" className="shell pb-24 pt-28 md:pt-36">
         <BlogList posts={posts} />
       </main>
       <Footer />

@@ -15,9 +15,12 @@ export const profile = {
   github: "https://github.com/Dimi07-tech",
 };
 
+export type ProjectCategory = "dev" | "network";
+
 export interface Project {
   name: string;
   tag: string;
+  category: ProjectCategory;
   stack: string[];
   desc: Bilingual;
   links?: { github?: string };
@@ -26,6 +29,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     name: "SkyBook",
+    category: "dev",
     tag: "Full-Stack",
     stack: ["React 19", "TypeScript", "Fastify", "PostgreSQL", "WebSocket", "Docker"],
     desc: {
@@ -36,6 +40,7 @@ export const projects: Project[] = [
   },
   {
     name: "OVL-MD-V2",
+    category: "dev",
     tag: "Bots & Automation",
     stack: ["JavaScript", "Node.js", "Docker"],
     desc: {
@@ -46,6 +51,7 @@ export const projects: Project[] = [
   },
   {
     name: "Urban_Taste",
+    category: "dev",
     tag: "Web",
     stack: ["HTML/CSS", "JavaScript"],
     desc: {
@@ -56,6 +62,7 @@ export const projects: Project[] = [
   },
   {
     name: "Docker — Deploy",
+    category: "dev",
     tag: "DevOps",
     stack: ["Docker", "Dockerfile", "CI"],
     desc: {
@@ -66,6 +73,7 @@ export const projects: Project[] = [
   },
   {
     name: "Lab OSPF — Triangle R1-R2-R3",
+    category: "network",
     tag: "Réseau",
     stack: ["OSPF", "GigabitEthernet", "DR/BDR"],
     desc: {
@@ -75,6 +83,7 @@ export const projects: Project[] = [
   },
   {
     name: "ACL standards & étendues",
+    category: "network",
     tag: "Réseau",
     stack: ["Cisco IOS", "ACL", "Filtering"],
     desc: {
@@ -121,6 +130,20 @@ export const certifications: Cert[] = [
     icon: "🎓",
   },
   {
+    title: "Ethical Hacker",
+    org: "Cisco Networking Academy",
+    date: "2026",
+    status: { fr: "Obtenu", en: "Earned" },
+    icon: "🛡️",
+  },
+  {
+    title: "CyberOps Associate",
+    org: "Cisco Networking Academy",
+    date: "2026",
+    status: { fr: "Obtenu", en: "Earned" },
+    icon: "🛰️",
+  },
+  {
     title: "CyberCup Indian Ocean — Team Edition",
     org: "OCOI · Équipe Hope229",
     date: "2026",
@@ -148,3 +171,111 @@ export const contact = {
   school: profile.school,
   location: "Cotonou, Bénin",
 };
+/* ─── Piliers ─── */
+export interface Pillar {
+  code: string;
+  title: Bilingual;
+  desc: Bilingual;
+  keywords: string[];
+}
+
+export const pillars: Pillar[] = [
+  {
+    code: "NETWORK",
+    title: { fr: "Concevoir & configurer", en: "Design & configure" },
+    desc: {
+      fr: "Adressage, routage dynamique, VLAN et segmentation : je monte des topologies propres, vérifiées commande par commande.",
+      en: "Addressing, dynamic routing, VLANs and segmentation: I build clean topologies, verified command by command.",
+    },
+    keywords: ["CCNA", "OSPF", "VLAN", "ACL", "NAT"],
+  },
+  {
+    code: "SECURE",
+    title: { fr: "Attaquer pour défendre", en: "Attack to defend" },
+    desc: {
+      fr: "Énumération, analyse de trafic, exploitation web : je pratique la sécurité offensive en CTF pour mieux durcir les systèmes.",
+      en: "Enumeration, traffic analysis, web exploitation: I practice offensive security in CTFs to harden systems better.",
+    },
+    keywords: ["CTF", "Nmap", "Wireshark", "Burp", "OSINT"],
+  },
+  {
+    code: "BUILD",
+    title: { fr: "Développer & automatiser", en: "Build & automate" },
+    desc: {
+      fr: "Applications web, bots et conteneurs : je transpose mes idées en code déployable et reproductible.",
+      en: "Web apps, bots and containers: I turn ideas into deployable, reproducible code.",
+    },
+    keywords: ["Node.js", "TypeScript", "Docker", "PostgreSQL"],
+  },
+];
+
+/* ─── Méthode ─── */
+export const method: { title: Bilingual; desc: Bilingual }[] = [
+  {
+    title: { fr: "Énumérer", en: "Enumerate" },
+    desc: { fr: "Cartographier le système avant d'agir.", en: "Map the system before acting." },
+  },
+  {
+    title: { fr: "Comprendre", en: "Understand" },
+    desc: { fr: "Identifier la logique, les flux et les points faibles.", en: "Identify logic, flows and weak points." },
+  },
+  {
+    title: { fr: "Agir", en: "Act" },
+    desc: { fr: "Configurer, exploiter ou corriger — proprement.", en: "Configure, exploit or fix — cleanly." },
+  },
+  {
+    title: { fr: "Documenter", en: "Document" },
+    desc: { fr: "Rédiger un writeup clair pour transmettre.", en: "Write a clear writeup to share." },
+  },
+];
+
+/* ─── Parcours ─── */
+export const journey: { period: Bilingual; title: Bilingual; place: Bilingual; desc: Bilingual }[] = [
+  {
+    period: { fr: "En cours", en: "Ongoing" },
+    title: { fr: "Réseau Informatique, Mobilité & Sécurité", en: "Networking, Mobility & Security" },
+    place: { fr: "Pigier Bénin · Calavi", en: "Pigier Bénin · Calavi" },
+    desc: {
+      fr: "Formation technique centrée sur l'infrastructure réseau, les télécoms et la sécurité des systèmes.",
+      en: "Technical program focused on network infrastructure, telecoms and systems security.",
+    },
+  },
+  {
+    period: { fr: "2025 — 2026", en: "2025 — 2026" },
+    title: { fr: "Programme Cisco CCNA", en: "Cisco CCNA program" },
+    place: { fr: "Cisco Networking Academy", en: "Cisco Networking Academy" },
+    desc: {
+      fr: "Routage & switching, OSPF, VLAN, ACL, NAT/PAT — plus de 10 labs Packet Tracer documentés.",
+      en: "Routing & switching, OSPF, VLAN, ACL, NAT/PAT — 10+ documented Packet Tracer labs.",
+    },
+  },
+  {
+    period: { fr: "2026", en: "2026" },
+    title: { fr: "CyberCup Indian Ocean — Team Edition", en: "CyberCup Indian Ocean — Team Edition" },
+    place: { fr: "OCOI · Équipe Hope229", en: "OCOI · Team Hope229" },
+    desc: {
+      fr: "Première compétition CTF internationale en équipe : web, forensics, crypto et OSINT.",
+      en: "First international team CTF competition: web, forensics, crypto and OSINT.",
+    },
+  },
+  {
+    period: { fr: "Prochaine étape", en: "Next step" },
+    title: { fr: "eJPT → OSCP", en: "eJPT → OSCP" },
+    place: { fr: "Objectif", en: "Goal" },
+    desc: {
+      fr: "Enchaîner les CTF solos (picoCTF, TryHackMe, Root-Me), publier mes writeups et viser les certifications offensives.",
+      en: "Chain solo CTFs (picoCTF, TryHackMe, Root-Me), publish writeups and aim for offensive certifications.",
+    },
+  },
+];
+
+/* ─── Vidéos de fond du hero ───
+ * Déposez vos fichiers dans public/hero/ puis déclarez-les ici, par ex. :
+ *   { src: "/hero/datacenter-4k.mp4", srcMobile: "/hero/datacenter-1080.mp4", poster: "/hero/datacenter.webp" }
+ * Liste vide → réseau animé en canvas.
+ */
+export const heroVideos: { src: string; srcMobile?: string; poster: string }[] = [
+  // Vidéos Pexels (licence libre) — câbles réseau, baie de serveurs
+  { src: "/hero/cables-4k.mp4", srcMobile: "/hero/cables-1080.mp4", poster: "/hero/cables.webp" },
+  { src: "/hero/servers-4k.mp4", srcMobile: "/hero/servers-1080.mp4", poster: "/hero/servers.webp" },
+];

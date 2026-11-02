@@ -1,300 +1,212 @@
 export type Lang = "fr" | "en";
 
-export interface Dict {
-  nav: {
-    home: string;
-    about: string;
-    skills: string;
-    projects: string;
-    ctf: string;
-    blog: string;
-    certifications: string;
-    contact: string;
-    cv: string;
-  };
-  hero: {
-    badge: string;
-    name: string;
-    role: string;
-    tagline: string;
-    ctaProjects: string;
-    ctaCv: string;
-    statTools: string;
-    statToolsLabel: string;
-    statProjects: string;
-    statProjectsLabel: string;
-    statCtf: string;
-    statCtfLabel: string;
-  };
-  about: {
-    kicker: string;
-    title: string;
-    p1: string;
-    p2: string;
-    quote: string;
-    values: { k: string; v: string }[];
-  };
-  skills: {
-    kicker: string;
-    title: string;
-    lead: string;
-  };
-  projects: {
-    kicker: string;
-    title: string;
-    lead: string;
-    github: string;
-    all: string;
-  };
-  ctf: {
-    kicker: string;
-    title: string;
-    lead: string;
-    certLabel: string;
-    nextLabel: string;
-    next: string;
-  };
-  blog: {
-    kicker: string;
-    title: string;
-    lead: string;
-    readMore: string;
-    allPosts: string;
-    empty: string;
-    back: string;
-    dateFormat: string;
-  };
-  certifications: {
-    kicker: string;
-    title: string;
-    lead: string;
-    preparingTitle: string;
-    preparing: string[];
-    obtained: string;
-    inProgress: string;
-  };
-  contact: {
-    kicker: string;
-    title: string;
-    lead: string;
-    formName: string;
-    formEmail: string;
-    formMessage: string;
-    formSend: string;
-    formPlaceholder: string;
-    directLabel: string;
-    emailLabel: string;
-    whatsappLabel: string;
-    linkedinLabel: string;
-    githubLabel: string;
-    whatsappCta: string;
-    success: string;
-  };
-  footer: {
-    tagline: string;
-    rights: string;
-  };
-}
-
-const fr: Dict = {
+const fr = {
+  skip: "Aller au contenu",
   nav: {
     home: "Accueil",
-    about: "À propos",
-    skills: "Compétences",
     projects: "Projets",
-    ctf: "CTF",
+    expertise: "Expertises",
     blog: "Blog",
     certifications: "Certifications",
-    contact: "Contact",
+    journey: "Parcours",
+    contact: "Discutons",
     cv: "CV",
+    menu: "Menu",
+    themeDark: "Activer le mode sombre",
+    themeLight: "Activer le mode clair",
   },
   hero: {
-    badge: "Réseaux · Mobilité · Sécurité",
-    name: "K0BR4",
-    role: "Dimitri BABALOLA",
-    tagline: "Esprit analytique, méthode rigoureuse. Je pense comme un attaquant pour mieux défendre.",
-    ctaProjects: "Voir mes projets",
-    ctaCv: "Télécharger mon CV",
-    statTools: "10+",
-    statToolsLabel: "Labs réseau (Packet Tracer)",
-    statProjects: "3",
-    statProjectsLabel: "Projets sur GitHub",
-    statCtf: "1ère",
-    statCtfLabel: "Compétition CTF internationale",
-  },
-  about: {
-    kicker: "Qui suis-je ?",
-    title: "Étudier le système avant de le défendre",
-    p1: "Étudiant en Réseau Informatique, Mobilité et Sécurité à Pigier Bénin (Calavi), je suis fasciné par la façon dont les systèmes communiquent — et par la façon dont on peut les protéger. Mon terrain de jeu préféré : les CTF, où chaque challenge est une énigme qui exige méthode et sang-froid.",
-    p2: "Formé au programme Cisco CCNA, je manipule l'adressage, le routage dynamique (OSPF), les VLAN, les ACL et la sécurité réseau au quotidien. En parallèle, je développe des projets web et des bots (Node.js, Docker) pour transposer mes réflexions côté code.",
-    quote: "Je ne force jamais les portes : j'étudie le système, je trouve la faille, j'agis proprement.",
-    values: [
-      { k: "Méthode", v: "Un déroulé précis : énumérer, comprendre, agir, documenter." },
-      { k: "Sang-froid", v: "Rester lucide sous pression — les meilleures décisions naissent dans le calme." },
-      { k: "Curiosité", v: "Toujours creuser plus loin : chaque réponse soulève de nouvelles questions." },
-      { k: "Éthique", v: "La technique sans cadre ne vaut rien — la sécurité est d'abord une éthique." },
+    badge: "Réseau × Cybersécurité",
+    line1: "Je configure.",
+    line2: "Je sécurise.",
+    intro: "Je suis Dimitri BABALOLA, alias",
+    tagline:
+      "Étudiant en Réseau Informatique, Mobilité & Sécurité à Pigier Bénin. Je pense comme un attaquant pour mieux défendre : labs Cisco, CTF et outils maison.",
+    ctaProjects: "Découvrir mes projets",
+    ctaContact: "Me contacter",
+    available: "Ouvert aux stages & collaborations",
+    location: "Cotonou, Bénin",
+    stats: [
+      { v: "10+", l: "Labs réseau documentés" },
+      { v: "6", l: "Projets & labs publiés" },
+      { v: "3", l: "Certifications obtenues" },
     ],
+    cardRole: "Réseau · Sécurité",
+    cardCcna: "CCNA en cours",
+    cardCtf: "CyberCup 2026",
   },
-  skills: {
-    kicker: "Mon arsenal",
-    title: "Compétences techniques",
-    lead: "Un socle réseau solide (CCNA), une curiosité pour le code et une pratique régulière de la sécurité offensive.",
+  pillars: {
+    kicker: "Ce que je fais",
+    title: "Trois piliers, une même rigueur.",
+    lead: "Le réseau comme fondation, la sécurité comme discipline, le code comme outil.",
   },
   projects: {
-    kicker: "Travaux",
-    title: "Projets & Labs",
-    lead: "Des bots, des applications web et des topologies réseau que j'ai conçues, configurées et documentées.",
-    github: "Voir sur GitHub",
-    all: "Tous",
+    kicker: "Projets",
+    title: "Projets & labs",
+    lead: "Des applications, des bots et des topologies réseau que j'ai conçus, configurés et documentés.",
+    filters: { all: "Tous", dev: "Développement", network: "Réseau" },
+    count: (n: number) => `${n} projet${n > 1 ? "s" : ""} affiché${n > 1 ? "s" : ""}`,
+    github: "Voir le code",
+    lab: "Lab documenté",
+    privateTitle: "D'autres travaux sont privés.",
+    privateText: "Certains projets d'école ou clients ne sont pas publics. Je peux en parler en détail sur demande.",
   },
-  ctf: {
-    kicker: "Compétitions",
-    title: "CTF & Compétitions",
-    lead: "La pratique, toujours. Les CTF transforment la théorie en réflexes.",
-    certLabel: "Certificat · 1ère étape",
-    nextLabel: "Prochain objectif",
-    next: "Enchaîner les CTF solos (picoCTF, TryHackMe, Root-Me) et publier mes writeups ici.",
+  expertise: {
+    kicker: "Expertises",
+    title: "Ce que je maîtrise.",
+    lead: "Un socle réseau solide, une pratique régulière de la sécurité offensive et une vraie curiosité pour le code.",
+    methodTitle: "Ma méthode",
   },
   blog: {
-    kicker: "Écrits",
-    title: "Blog & Writeups",
+    kicker: "Blog",
+    title: "Notes & writeups",
     lead: "Mes notes techniques et résolutions de challenges, pour partager ce que j'apprends.",
     readMore: "Lire l'article",
     allPosts: "Tous les articles",
     empty: "Bientôt disponible.",
     back: "← Retour au blog",
-    dateFormat: "Le {date}",
+    home: "← Accueil",
+    minutes: (n: number) => `${n} min de lecture`,
+    pageTitle: "Articles & writeups",
   },
   certifications: {
-    kicker: "Preuves",
-    title: "Certifications",
-    lead: "Des apprentissages validés, en cours… et en préparation.",
+    kicker: "Certifications",
+    title: "Apprentissages validés.",
+    lead: "Ce que j'ai obtenu, ce qui est en cours, et ce que je prépare.",
     preparingTitle: "En préparation",
-    preparing: ["OSCP", "eJPT", "CompTIA Security+"],
-    obtained: "Obtenu",
-    inProgress: "En cursus",
+  },
+  journey: {
+    kicker: "Parcours",
+    title: "Étudier le système avant de le défendre.",
+    p1: "Fasciné par la façon dont les systèmes communiquent — et par la façon dont on peut les protéger — je me forme au réseau et à la sécurité à Pigier Bénin, avec le programme Cisco CCNA.",
+    p2: "Mon terrain de jeu préféré : les CTF, où chaque challenge est une énigme qui exige méthode et sang-froid. En parallèle, je développe des applications et des bots pour transposer mes réflexions côté code.",
+    quote: "Je ne force jamais les portes : j'étudie le système, je trouve la faille, j'agis proprement.",
   },
   contact: {
-    kicker: "Parler de projets",
-    title: "Travaillons ensemble",
-    lead: "Une idée, un lab à monter, un challenge à résoudre ? Écrivez-moi.",
-    formName: "Votre nom",
-    formEmail: "Votre email",
-    formMessage: "Votre message",
-    formSend: "Envoyer le message",
-    formPlaceholder: "Décrivez votre projet…",
-    directLabel: "Coordonnées",
-    emailLabel: "Email",
-    whatsappLabel: "WhatsApp",
-    linkedinLabel: "LinkedIn",
-    githubLabel: "GitHub",
-    whatsappCta: "Discuter sur WhatsApp",
-    success: "Merci ! Votre email client va s'ouvrir pour l'envoi.",
+    kicker: "Contact",
+    title: "Travaillons ensemble.",
+    lead: "Une idée, un lab à monter, un challenge à résoudre, un stage ? Écrivez-moi — je réponds rapidement.",
+    name: "Nom",
+    email: "Email",
+    subject: "Sujet",
+    message: "Message",
+    placeholder: "Décrivez votre projet ou votre question…",
+    send: "Envoyer",
+    success: "Merci ! Votre client mail va s'ouvrir pour l'envoi.",
+    cvFr: "CV (FR)",
+    cvEn: "CV (EN)",
+    privacy: "Aucune donnée n'est stockée : le formulaire ouvre simplement votre client mail.",
   },
   footer: {
-    tagline: "Réseau · Sécurité · Stratégie. Construit avec méthode.",
     rights: "Tous droits réservés.",
+    top: "Retour en haut",
+    privacy: "Sans cookies, sans traceurs.",
   },
 };
 
+export type Dict = typeof fr;
+
 const en: Dict = {
+  skip: "Skip to content",
   nav: {
     home: "Home",
-    about: "About",
-    skills: "Skills",
     projects: "Projects",
-    ctf: "CTF",
+    expertise: "Expertise",
     blog: "Blog",
     certifications: "Certifications",
-    contact: "Contact",
+    journey: "Journey",
+    contact: "Let's talk",
     cv: "CV",
+    menu: "Menu",
+    themeDark: "Switch to dark mode",
+    themeLight: "Switch to light mode",
   },
   hero: {
-    badge: "Networking · Mobility · Security",
-    name: "K0BR4",
-    role: "Dimitri BABALOLA",
-    tagline: "Analytical mind, rigorous method. I think like an attacker to defend better.",
-    ctaProjects: "See my projects",
-    ctaCv: "Download my CV",
-    statTools: "10+",
-    statToolsLabel: "Network labs (Packet Tracer)",
-    statProjects: "3",
-    statProjectsLabel: "Projects on GitHub",
-    statCtf: "1st",
-    statCtfLabel: "International CTF competition",
-  },
-  about: {
-    kicker: "Who am I?",
-    title: "Study the system before defending it",
-    p1: "A Networking, Mobility and Security student at Pigier Bénin (Calavi), I'm fascinated by how systems communicate — and how they can be protected. My favourite playground: CTFs, where every challenge is a puzzle demanding method and composure.",
-    p2: "Trained on the Cisco CCNA program, I work every day with addressing, dynamic routing (OSPF), VLANs, ACLs and network security. In parallel, I build web projects and bots (Node.js, Docker) to translate my thinking into code.",
-    quote: "I never force doors: I study the system, find the flaw, act cleanly.",
-    values: [
-      { k: "Method", v: "A precise workflow: enumerate, understand, act, document." },
-      { k: "Composure", v: "Staying lucid under pressure — the best decisions come from calm." },
-      { k: "Curiosity", v: "Always dig deeper: every answer raises new questions." },
-      { k: "Ethics", v: "Skill without boundaries is worthless — security starts with ethics." },
+    badge: "Networking × Cybersecurity",
+    line1: "I configure.",
+    line2: "I secure.",
+    intro: "I'm Dimitri BABALOLA, aka",
+    tagline:
+      "Networking, Mobility & Security student at Pigier Bénin. I think like an attacker to defend better: Cisco labs, CTFs and home-made tools.",
+    ctaProjects: "Explore my projects",
+    ctaContact: "Contact me",
+    available: "Open to internships & collaborations",
+    location: "Cotonou, Benin",
+    stats: [
+      { v: "10+", l: "Documented network labs" },
+      { v: "6", l: "Published projects & labs" },
+      { v: "3", l: "Certifications earned" },
     ],
+    cardRole: "Network · Security",
+    cardCcna: "CCNA in progress",
+    cardCtf: "CyberCup 2026",
   },
-  skills: {
-    kicker: "My arsenal",
-    title: "Technical skills",
-    lead: "A solid networking foundation (CCNA), a curiosity for code and regular hands-on security practice.",
+  pillars: {
+    kicker: "What I do",
+    title: "Three pillars, one standard.",
+    lead: "Networking as the foundation, security as the discipline, code as the tool.",
   },
   projects: {
-    kicker: "Work",
-    title: "Projects & Labs",
-    lead: "Bots, web apps and network topologies I designed, configured and documented.",
-    github: "View on GitHub",
-    all: "All",
+    kicker: "Projects",
+    title: "Projects & labs",
+    lead: "Apps, bots and network topologies I designed, configured and documented.",
+    filters: { all: "All", dev: "Development", network: "Networking" },
+    count: (n: number) => `${n} project${n > 1 ? "s" : ""} shown`,
+    github: "View code",
+    lab: "Documented lab",
+    privateTitle: "Some work is private.",
+    privateText: "Some school or client projects aren't public. Happy to walk you through them on request.",
   },
-  ctf: {
-    kicker: "Competitions",
-    title: "CTF & Competitions",
-    lead: "Always practicing. CTFs turn theory into reflexes.",
-    certLabel: "Certificate · Round 1",
-    nextLabel: "Next goal",
-    next: "Chain more solo CTFs (picoCTF, TryHackMe, Root-Me) and publish my writeups here.",
+  expertise: {
+    kicker: "Expertise",
+    title: "What I work with.",
+    lead: "A solid networking foundation, regular hands-on offensive security and real curiosity for code.",
+    methodTitle: "My method",
   },
   blog: {
-    kicker: "Writing",
-    title: "Blog & Writeups",
+    kicker: "Blog",
+    title: "Notes & writeups",
     lead: "My technical notes and challenge writeups, sharing what I learn.",
     readMore: "Read article",
     allPosts: "All articles",
     empty: "Coming soon.",
     back: "← Back to blog",
-    dateFormat: "On {date}",
+    home: "← Home",
+    minutes: (n: number) => `${n} min read`,
+    pageTitle: "Articles & writeups",
   },
   certifications: {
-    kicker: "Proof",
-    title: "Certifications",
-    lead: "Validated learning, in progress… and in preparation.",
+    kicker: "Certifications",
+    title: "Validated learning.",
+    lead: "What I've earned, what's in progress, and what I'm preparing.",
     preparingTitle: "In preparation",
-    preparing: ["OSCP", "eJPT", "CompTIA Security+"],
-    obtained: "Earned",
-    inProgress: "In progress",
+  },
+  journey: {
+    kicker: "Journey",
+    title: "Study the system before defending it.",
+    p1: "Fascinated by how systems communicate — and how they can be protected — I'm training in networking and security at Pigier Bénin, through the Cisco CCNA program.",
+    p2: "My favourite playground: CTFs, where every challenge is a puzzle demanding method and composure. In parallel, I build apps and bots to turn my thinking into code.",
+    quote: "I never force doors: I study the system, find the flaw, act cleanly.",
   },
   contact: {
-    kicker: "Talk about projects",
-    title: "Let's work together",
-    lead: "An idea, a lab to build, a challenge to solve? Write to me.",
-    formName: "Your name",
-    formEmail: "Your email",
-    formMessage: "Your message",
-    formSend: "Send message",
-    formPlaceholder: "Describe your project…",
-    directLabel: "Contact details",
-    emailLabel: "Email",
-    whatsappLabel: "WhatsApp",
-    linkedinLabel: "LinkedIn",
-    githubLabel: "GitHub",
-    whatsappCta: "Chat on WhatsApp",
+    kicker: "Contact",
+    title: "Let's work together.",
+    lead: "An idea, a lab to build, a challenge to solve, an internship? Write to me — I reply quickly.",
+    name: "Name",
+    email: "Email",
+    subject: "Subject",
+    message: "Message",
+    placeholder: "Describe your project or question…",
+    send: "Send",
     success: "Thanks! Your email client will open to send it.",
+    cvFr: "CV (FR)",
+    cvEn: "CV (EN)",
+    privacy: "No data is stored: the form simply opens your email client.",
   },
   footer: {
-    tagline: "Networking · Security · Strategy. Built with method.",
     rights: "All rights reserved.",
+    top: "Back to top",
+    privacy: "No cookies, no trackers.",
   },
 };
 

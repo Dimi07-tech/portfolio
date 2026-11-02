@@ -3,27 +3,35 @@ import { cn } from "@/lib/cn";
 interface SectionProps {
   id?: string;
   kicker?: string;
+  index?: string;
   title: string;
   lead?: string;
+  action?: React.ReactNode;
   children: React.ReactNode;
   className?: string;
 }
 
-export function Section({ id, kicker, title, lead, children, className }: SectionProps) {
+export function Section({ id, kicker, index, title, lead, action, children, className }: SectionProps) {
   return (
-    <section id={id} className={cn("relative py-20 md:py-28", className)}>
-      <div className="mx-auto w-full max-w-6xl px-6">
-        <header className="mb-12 md:mb-16 max-w-2xl">
-          {kicker && (
-            <p className="mb-3 flex items-center gap-3 font-mono text-xs font-semibold uppercase tracking-[0.3em] text-venom">
-              <span className="h-px w-8 bg-venom/60" />
-              {kicker}
-            </p>
-          )}
-          <h2 className="text-3xl font-bold tracking-tight text-white md:text-5xl">{title}</h2>
-          {lead && <p className="mt-4 text-slate-400 md:text-lg">{lead}</p>}
+    <section id={id} className={cn("relative scroll-mt-20 py-16 md:py-24", className)}>
+      <div className="shell">
+        <header className="reveal mb-10 flex flex-col gap-6 md:mb-14 md:flex-row md:items-end md:justify-between">
+          <div className="max-w-2xl">
+            {kicker && (
+              <p className="eyebrow mb-4">
+                {index && <span className="text-faint">{index}</span>}
+                <span className="h-px w-6 bg-accent/50" />
+                {kicker}
+              </p>
+            )}
+            <h2 className="font-display text-3xl font-semibold tracking-tight text-fg sm:text-4xl md:text-5xl">
+              {title}
+            </h2>
+            {lead && <p className="mt-4 text-base leading-relaxed md:text-lg">{lead}</p>}
+          </div>
+          {action}
         </header>
-        {children}
+        <div className="reveal [--reveal-delay:120ms]">{children}</div>
       </div>
     </section>
   );

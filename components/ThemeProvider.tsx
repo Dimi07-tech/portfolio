@@ -15,11 +15,11 @@ interface ThemeContextValue {
 const ThemeContext = createContext<ThemeContextValue | null>(null);
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>("dark");
+  const [theme, setThemeState] = useState<Theme>("light");
 
+  // Source de vérité : la classe posée sur <html> par le script anti-FOUC (clair par défaut)
   useEffect(() => {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    setThemeState(saved === "light" ? "light" : "dark");
+    setThemeState(document.documentElement.classList.contains("light") ? "light" : "dark");
   }, []);
 
   const setTheme = (t: Theme) => {

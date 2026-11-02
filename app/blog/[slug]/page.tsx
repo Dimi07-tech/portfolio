@@ -38,9 +38,9 @@ export default async function BlogPostPage({
     return (
       <LangProvider>
         <Navbar />
-        <main className="mx-auto w-full max-w-3xl px-6 pb-24 pt-32">
-          <p className="text-slate-400">Article introuvable.</p>
-          <Link href="/blog" className="mt-4 inline-block text-venom hover:underline">
+        <main id="main" className="mx-auto w-full max-w-3xl px-4 pb-24 pt-28 sm:px-6 md:pt-36">
+          <p>Article introuvable.</p>
+          <Link href="/blog" className="mt-4 inline-block text-accent hover:underline">
             ← Blog
           </Link>
         </main>
@@ -52,7 +52,7 @@ export default async function BlogPostPage({
   return (
     <LangProvider>
       <Navbar />
-      <main className="mx-auto w-full max-w-3xl px-6 pb-24 pt-32">
+      <main id="main" className="mx-auto w-full max-w-3xl px-4 pb-24 pt-28 sm:px-6 md:pt-36">
         <PostView post={post} />
       </main>
       <Footer />

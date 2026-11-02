@@ -1,6 +1,7 @@
 "use client";
 
 import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
+import { RevealObserver } from "@/components/RevealObserver";
 import { translations, type Dict, type Lang } from "@/lib/i18n";
 
 interface LangContextValue {
@@ -39,6 +40,7 @@ export function LangProvider({ children }: { children: ReactNode }) {
           __html: `try{var l=localStorage.getItem('${STORAGE_KEY}');if(l==='en'||l==='fr'){document.documentElement.lang=l}}catch(e){}`,
         }}
       />
+      <RevealObserver />
       <div data-mounted={mounted}>{children}</div>
     </LangContext.Provider>
   );
